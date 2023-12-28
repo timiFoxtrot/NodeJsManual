@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+      "createdTime": {
+        "type": "string"
+      },
+      "lastUpdateTime": {
+        "type": "string"
+      },
+      "vehicle_id": {
+        "type": "string"
+      },
+      "champion_id": {
+        "type": "string"
+      },
+      "contract_id": {
+        "type": "string"
+      },
+      "timeOffRequest_id": {
+        "type": "string"
+      },
+      "timeOffStartTime": {
+        "type": "string"
+      },
+      "timeOffEndTime": {
+        "type": "string"
+      },
+      "messageInfo": {
+        "type": "object",
+        "properties": {
+          "documentStatus": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "documentStatus",
+          "origin"
+        ]
+      }
+    },
+    "required": [
+      "createdTime",
+      "lastUpdateTime",
+      "vehicle_id",
+      "champion_id",
+      "contract_id",
+      "timeOffRequest_id",
+      "timeOffStartTime",
+      "timeOffEndTime",
+      "messageInfo"
+    ]
+  }
+  
