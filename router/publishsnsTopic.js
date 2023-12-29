@@ -15,7 +15,7 @@ const submitVehicleTopic = async (newData,documentStatus) => {
     delete toPublish['_id'];
     const vehicleParam = {
         Message: JSON.stringify(toPublish),
-        TopicArn: process.env.VEHICLE_SNS,
+        // TopicArn: process.env.VEHICLE_SNS,
     };
     // console.log("Topic",process.env.VEHICLE_SNS)
     return await sns
@@ -45,7 +45,7 @@ const submitVehicleTopicv1 = async (newData,documentStatus) => {
     delete toPublish['_id'];
     const vehicleParam = {
         Message: JSON.stringify(toPublish),
-        TopicArn: process.env.VEHICLE_SNS,
+        // TopicArn: process.env.VEHICLE_SNS,
     };
     // console.log("Topic",process.env.VEHICLE_SNS)
     return await sns
