@@ -78,6 +78,7 @@ router.post(
         vehicle_id: data?.vehicle_id,
       });
       const dataV = await vehicleCol.findOne({ vehicle_id: data?.vehicle_id });
+      console.log({dataV})
       let responsevehicle;
 
       if (
@@ -85,8 +86,10 @@ router.post(
         dataV?.champion_id !== dataC?.champion_id
       ) {
         if (dataA?.documentStatus) {
-          data["documentStatus"] = dataA?.documentStatus;
-          await pub.submitVehicleTopic(data, dataA?.documentStatus);
+          // data["documentStatus"] = dataA?.documentStatus;
+          // await pub.submitVehicleTopic(data, dataA?.documentStatus);
+          data["documentStatus"] = "PickUpComplete";
+          await pub.submitVehicleTopic(data, "PickUpComplete");
         } else {
           data["documentStatus"] = "PickUpComplete";
           await pub.submitVehicleTopic(data, "PickUpComplete");
@@ -524,8 +527,8 @@ router.post(
 );
 
 var { MONGODB } = process.env;
-var client = new import_mongodb.MongoClient(process.env.STAGINGDB);
-// var client = new import_mongodb.MongoClient(process.env.PRODDB);
+// var client = new import_mongodb.MongoClient(process.env.STAGINGDB);
+var client = new import_mongodb.MongoClient(process.env.PRODDB);
 var cachedDB = null;
 var connectToDB = (database) => {
   return new Promise((resolve, reject) => {
